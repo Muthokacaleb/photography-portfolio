@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALEB PHOTOGRAPHY — Caleb Muthoka / Nairobi, Kenya</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Manrope & DM Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Manrope:wght@200..800&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        deepBlack: '#0a0a0a',
+                        charcoal: '#141414',
+                        surfaceDark: '#1a1a1a',
+                        warmIvory: '#F4F1EA',
+                        softBeige: '#E3DFD5',
+                        rust: '#b84a39',
+                        rustDark: '#96392b',
+                        concrete: '#262626',
+                    },
+                    fontFamily: {
+                        sans: ['"DM Sans"', 'sans-serif'],
+                        heading: ['"Manrope"', 'sans-serif'],
+                        mono: ['"Space Grotesk"', 'monospace'],
+                    },
+                    letterSpacing: {
+                        'widest-xl': '0.25em',
+                        'tightest': '-0.04em',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar and base aesthetics */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #262626;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #b84a39;
+        }
+        
+        .noise-bg {
+            background-image: radial-gradient(rgba(244, 241, 234, 0.03) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-ticker {
+            display: flex;
+            width: 200%;
+            animation: ticker 25s linear infinite;
+        }
+        .animate-ticker:hover {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body class="bg-deepBlack text-warmIvory font-sans antialiased selection:bg-rust selection:text-warmIvory overflow-x-hidden noise-bg">
+
+    <!-- Top Metadata Ticker Bar -->
+    <div class="bg-charcoal border-b border-white/10 text-xs font-mono py-2 px-4 md:px-8 tracking-widest text-softBeige/70 overflow-hidden whitespace-nowrap">
+        <div class="animate-ticker inline-block">
+            <span class="mx-6">A story teller through lens</span>
+            <span class="mx-6 text-rust">•</span>
+            <span class="mx-6">NAIROBI / KE 01°17′S 36°49′E</span>
+            <span class="mx-6 text-rust">•</span>
+            <span class="mx-6">EST. 2026</span>
+            <span class="mx-6 text-rust">•</span>
+            <span class="mx-6">CALEB MUTHOKA</span>
+            <span class="mx-6 text-rust">•</span>
+            <span class="mx-6">A story teller through lens</span>
+            <span class="mx-6 text-rust">•</span>
+            <span class="mx-6">NAIROBI / KE 01°17′S 36°49′E</span>
+            <span class="mx-6 text-rust">•</span>
+            <span class="mx-6">EST. 2026</span>
+            <span class="mx-6 text-rust">•</span>
+            <span class="mx-6">CALEB MUTHOKA</span>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="sticky top-0 z-50 bg-deepBlack/90 backdrop-blur-md border-b border-white/10 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
+            <a href="#" class="font-heading font-extrabold text-xl md:text-2xl tracking-tight text-warmIvory flex items-center gap-2 group">
+                CALEB PHOTOGRAPHY<span class="text-rust group-hover:translate-x-1 transition-transform">.</span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-10 font-mono text-xs uppercase tracking-widest text-softBeige/80">
+                <a href="#work" class="hover:text-warmIvory transition-colors">Work</a>
+                <a href="#services" class="hover:text-warmIvory transition-colors">Services</a>
+                <a href="#about" class="hover:text-warmIvory transition-colors">About</a>
+                <a href="#contact" class="hover:text-warmIvory transition-colors">Contact</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 bg-warmIvory text-deepBlack font-mono text-xs font-bold uppercase tracking-wider hover:bg-rust hover:text-warmIvory transition-all duration-300">
+                    Book a Session
+                </a>
+                <!-- Mobile Menu Toggle Button -->
+                <button id="menu-btn" class="md:hidden text-warmIvory focus:outline-none p-2" aria-label="Toggle Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu Overlay -->
+        <div id="mobile-menu" class="hidden md:hidden bg-deepBlack border-b border-white/10 px-6 py-8 space-y-6 font-mono text-sm tracking-widest">
+            <a href="#work" class="block text-softBeige hover:text-warmIvory transition-colors mobile-link">01 / WORK</a>
+            <a href="#services" class="block text-softBeige hover:text-warmIvory transition-colors mobile-link">02 / SERVICES</a>
+            <a href="#about" class="block text-softBeige hover:text-warmIvory transition-colors mobile-link">03 / ABOUT</a>
+            <a href="#contact" class="block text-softBeige hover:text-warmIvory transition-colors mobile-link">04 / CONTACT</a>
+            <div class="pt-4 border-t border-white/10">
+                <a href="#contact" class="block text-center py-3 bg-rust text-warmIvory font-bold uppercase">Book a Session</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[90vh] flex flex-col justify-between px-6 md:px-12 py-12 max-w-7xl mx-auto overflow-hidden">
+        <!-- Abstract Background Coordinate / Grid Watermark -->
+        <div class="absolute right-6 top-1/4 font-mono text-[10vw] md:text-[12vw] font-bold text-white/[0.02] select-none pointer-events-none leading-none text-right">
+            01°17′S<br>36°49′E
+        </div>
+
+        <div class="space-y-4 z-10 pt-8 md:pt-16">
+            <div class="flex items-center gap-3 font-mono text-xs tracking-widest text-rust">
+                <span class="w-2 h-2 rounded-full bg-rust animate-pulse"></span>
+                NAIROBI / EAST AFRICA — 2026
+            </div>
+            <h1 class="font-heading font-black text-5xl sm:text-7xl md:text-8xl tracking-tightest uppercase leading-none">
+                CALEB MUTHOKA
+            </h1>
+            <h2 class="font-heading font-light text-2xl sm:text-4xl md:text-5xl tracking-tight text-softBeige/90 uppercase">
+                Photography
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-end z-10 pb-8 mt-16 border-b border-white/10 pb-12">
+            <div class="md:col-span-7 space-y-6">
+                <p class="font-mono text-sm tracking-widest text-rust uppercase">
+                    "Stories worth remembering."
+                </p>
+                <p class="font-sans text-lg md:text-xl text-softBeige/80 max-w-xl leading-relaxed">
+                    Contemporary visual narratives from Nairobi. Operating at the intersection of urban youth culture, emotional depth, architectural geometry, and cinematic soul.
+                </p>
+            </div>
+            <div class="md:col-span-5 flex flex-col sm:flex-row md:justify-end gap-4">
+                <a href="#work" class="inline-flex items-center justify-between px-8 py-4 border border-white/20 hover:border-rust text-warmIvory font-mono text-xs uppercase tracking-widest group transition-all duration-300">
+                    <span>Explore the Work</span>
+                    <span class="ml-4 group-hover:translate-x-2 transition-transform text-rust">→</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Secondary Info Row -->
+        <div class="flex flex-wrap justify-between items-center font-mono text-xs text-softBeige/50 pt-4 tracking-widest">
+            <div>CALEB MUTHOKA</div>
+            <div>STREET + STUDIO</div>
+            <div>MADE IN KENYA</div>
+        </div>
+    </section>
+
+    <!-- Editorial Statement -->
+    <section class="py-24 md:py-36 border-b border-white/10 bg-charcoal/50">
+        <div class="max-w-5xl mx-auto px-6 md:px-12 text-center space-y-8">
+            <div class="font-mono text-xs uppercase tracking-widest text-rust">Philosophy</div>
+            <blockquote class="font-heading font-bold text-3xl sm:text-5xl md:text-6xl tracking-tight leading-tight text-warmIvory">
+                "Photography is more than recording what happened. <br>
+                <span class="text-rust font-light italic">It's about remembering how it felt.</span>"
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- The Work Section (Categories) -->
+    <section id="work" class="py-24 md:py-36 max-w-7xl mx-auto px-6 md:px-12 border-b border-white/10">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div>
+                <span class="font-mono text-xs tracking-widest text-rust uppercase">Curated Divisions</span>
+                <h2 class="font-heading font-bold text-4xl md:text-6xl tracking-tight uppercase mt-2">The Categories</h2>
+            </div>
+            <p class="font-mono text-xs tracking-wider text-softBeige/60 max-w-xs">
+                Disciplined visual systems crafted for distinct narratives and environments.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Category 1 -->
+            <div class="group relative bg-surfaceDark border border-white/10 p-8 md:p-10 flex flex-col justify-between min-h-[320px] hover:border-rust/60 transition-all duration-500">
+                <div class="flex justify-between items-start">
+                    <span class="font-mono text-xs text-rust">01</span>
+                    <span class="font-mono text-[10px] uppercase tracking-widest text-softBeige/40">Studio & Natural</span>
+                </div>
+                <div>
+                    <h3 class="font-heading font-bold text-3xl tracking-tight uppercase group-hover:translate-x-2 transition-transform duration-300">Portraits</h3>
+                    <p class="font-sans text-sm text-softBeige/70 mt-3 leading-relaxed">Capturing individual character, raw expressions, and modern Kenyan identity through intentional lighting.</p>
+                </div>
+                <div class="pt-6 border-t border-white/5 flex justify-between items-center font-mono text-xs text-softBeige/60">
+                    <span>Explore series</span>
+                    <span class="text-rust group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+            </div>
+
+            <!-- Category 2 -->
+            <div class="group relative bg-surfaceDark border border-white/10 p-8 md:p-10 flex flex-col justify-between min-h-[320px] hover:border-rust/60 transition-all duration-500">
+                <div class="flex justify-between items-start">
+                    <span class="font-mono text-xs text-rust">02</span>
+                    <span class="font-mono text-[10px] uppercase tracking-widest text-softBeige/40">Energy & Motion</span>
+                </div>
+                <div>
+                    <h3 class="font-heading font-bold text-3xl tracking-tight uppercase group-hover:translate-x-2 transition-transform duration-300">Events</h3>
+                    <p class="font-sans text-sm text-softBeige/70 mt-3 leading-relaxed">Immersive documentation of Nairobi's vibrant creative culture, live music sessions, and high-energy gatherings.</p>
+                </div>
+                <div class="pt-6 border-t border-white/5 flex justify-between items-center font-mono text-xs text-softBeige/60">
+                    <span>Explore series</span>
+                    <span class="text-rust group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+            </div>
+
+            <!-- Category 3 -->
+            <div class="group relative bg-surfaceDark border border-white/10 p-8 md:p-10 flex flex-col justify-between min-h-[320px] hover:border-rust/60 transition-all duration-500">
+                <div class="flex justify-between items-start">
+                    <span class="font-mono text-xs text-rust">03</span>
+                    <span class="font-mono text-[10px] uppercase tracking-widest text-softBeige/40">Sacred & Timeless</span>
+                </div>
+                <div>
+                    <h3 class="font-heading font-bold text-3xl tracking-tight uppercase group-hover:translate-x-2 transition-transform duration-300">Weddings</h3>
+                    <p class="font-sans text-sm text-softBeige/70 mt-3 leading-relaxed">Documenting unions with cinematic grace, authentic emotion, and elegant compositional rhythm.</p>
+                </div>
+                <div class="pt-6 border-t border-white/5 flex justify-between items-center font-mono text-xs text-softBeige/60">
+                    <span>Explore series</span>
+                    <span class="text-rust group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+            </div>
+
+            <!-- Category 4 -->
+            <div class="group relative bg-surfaceDark border border-white/10 p-8 md:p-10 flex flex-col justify-between min-h-[320px] hover:border-rust/60 transition-all duration-500">
+                <div class="flex justify-between items-start">
+                    <span class="font-mono text-xs text-rust">04</span>
+                    <span class="font-mono text-[10px] uppercase tracking-widest text-softBeige/40">Sanctuary & Spirit</span>
+                </div>
+                <div>
+                    <h3 class="font-heading font-bold text-3xl tracking-tight uppercase group-hover:translate-x-2 transition-transform duration-300">Ministry</h3>
+                    <p class="font-sans text-sm text-softBeige/70 mt-3 leading-relaxed">Reverent documentation of faith spaces, church culture, worship gatherings, and community devotion.</p>
+                </div>
+                <div class="pt-6 border-t border-white/5 flex justify-between items-center font-mono text-xs text-softBeige/60">
+                    <span>Explore series</span>
+                    <span class="text-rust group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+            </div>
+
+            <!-- Category 5 -->
+            <div class="group relative bg-surfaceDark border border-white/10 p-8 md:p-10 flex flex-col justify-between min-h-[320px] hover:border-rust/60 transition-all duration-500">
+                <div class="flex justify-between items-start">
+                    <span class="font-mono text-xs text-rust">05</span>
+                    <span class="font-mono text-[10px] uppercase tracking-widest text-softBeige/40">Intimate Bonds</span>
+                </div>
+                <div>
+                    <h3 class="font-heading font-bold text-3xl tracking-tight uppercase group-hover:translate-x-2 transition-transform duration-300">Couples</h3>
+                    <p class="font-sans text-sm text-softBeige/70 mt-3 leading-relaxed">Unaltered chemistry and candid affection framed against urban textures and soft natural light.</p>
+                </div>
+                <div class="pt-6 border-t border-white/5 flex justify-between items-center font-mono text-xs text-softBeige/60">
+                    <span>Explore series</span>
+                    <span class="text-rust group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+            </div>
+
+            <!-- Category 6 -->
+            <div class="group relative bg-surfaceDark border border-white/10 p-8 md:p-10 flex flex-col justify-between min-h-[320px] hover:border-rust/60 transition-all duration-500">
+                <div class="flex justify-between items-start">
+                    <span class="font-mono text-xs text-rust">06</span>
+                    <span class="font-mono text-[10px] uppercase tracking-widest text-softBeige/40">Milestones</span>
+                </div>
+                <div>
+                    <h3 class="font-heading font-bold text-3xl tracking-tight uppercase group-hover:translate-x-2 transition-transform duration-300">Graduations</h3>
+                    <p class="font-sans text-sm text-softBeige/70 mt-3 leading-relaxed">Celebrating achievement with striking editorial portraits that capture the pride of Nairobi's next generation.</p>
+                </div>
+                <div class="pt-6 border-t border-white/5 flex justify-between items-center font-mono text-xs text-softBeige/60">
+                    <span>Explore series</span>
+                    <span class="text-rust group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 md:py-36 max-w-7xl mx-auto px-6 md:px-12 border-b border-white/10">
+        <div class="mb-16">
+            <span class="font-mono text-xs tracking-widest text-rust uppercase">Capabilities</span>
+            <h2 class="font-heading font-bold text-4xl md:text-6xl tracking-tight uppercase mt-2">What I Photograph</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="space-y-8">
+                <div class="border-l-2 border-rust pl-6 space-y-2">
+                    <h3 class="font-heading font-bold text-xl uppercase tracking-wider">Portraits & Lifestyle</h3>
+                    <p class="font-sans text-sm text-softBeige/70 leading-relaxed">Individual, editorial, and lifestyle sessions tailored to capture genuine character and modern aesthetics.</p>
+                </div>
+                <div class="border-l-2 border-white/20 pl-6 space-y-2">
+                    <h3 class="font-heading font-bold text-xl uppercase tracking-wider">Weddings & Couples</h3>
+                    <p class="font-sans text-sm text-softBeige/70 leading-relaxed">Documenting love stories with a cinematic lens, focusing on candid interactions and timeless visual elegance.</p>
+                </div>
+                <div class="border-l-2 border-white/20 pl-6 space-y-2">
+                    <h3 class="font-heading font-bold text-xl uppercase tracking-wider">Events & Cultural Gatherings</h3>
+                    <p class="font-sans text-sm text-softBeige/70 leading-relaxed">High-energy coverage of Nairobi's creative scene, concerts, fashion showcases, and social milestones.</p>
+                </div>
+            </div>
+            <div class="space-y-8">
+                <div class="border-l-2 border-white/20 pl-6 space-y-2">
+                    <h3 class="font-heading font-bold text-xl uppercase tracking-wider">Ministry & Sacred Spaces</h3>
+                    <p class="font-sans text-sm text-softBeige/70 leading-relaxed">Thoughtful, respectful visual documentation of church culture, worship services, and community events.</p>
+                </div>
+                <div class="border-l-2 border-white/20 pl-6 space-y-2">
+                    <h3 class="font-heading font-bold text-xl uppercase tracking-wider">Graduations & Milestones</h3>
+                    <p class="font-sans text-sm text-softBeige/70 leading-relaxed">Marking life's major achievements with sophisticated framing and artistic composition.</p>
+                </div>
+                <div class="border-l-2 border-rust pl-6 space-y-2">
+                    <h3 class="font-heading font-bold text-xl uppercase tracking-wider">Commercial & Editorial</h3>
+                    <p class="font-sans text-sm text-softBeige/70 leading-relaxed">Brand narratives, lookbooks, and conceptual imagery rooted in East African urban culture.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Behind the Camera (About Caleb Muthoka) -->
+    <section id="about" class="py-24 md:py-36 max-w-7xl mx-auto px-6 md:px-12 border-b border-white/10">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
+            <div class="md:col-span-5 space-y-4">
+                <span class="font-mono text-xs tracking-widest text-rust uppercase">Behind The Camera</span>
+                <h2 class="font-heading font-bold text-4xl md:text-5xl tracking-tight uppercase">Caleb Muthoka</h2>
+                <p class="font-mono text-xs text-softBeige/50">NAIROBI, KENYA</p>
+            </div>
+            <div class="md:col-span-7 space-y-6 font-sans text-lg text-softBeige/80 leading-relaxed">
+                <p>
+                    I'm Caleb Muthoka, a Nairobi-based photographer interested in people, atmosphere and visual storytelling.
+                </p>
+                <p>
+                    My work sits between photography, design and culture. I enjoy finding the moments that happen naturally — the expression before the pose, the movement between scenes, and the details that make an experience feel personal.
+                </p>
+                <p class="font-mono text-xs text-softBeige/60 pt-4 border-t border-white/10">
+                    Whether shooting in high-contrast urban light or quiet interior sanctuaries, the focus remains absolute: authentic connection and pristine visual delivery.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Dramatic Typography Section -->
+    <section class="py-24 md:py-40 bg-deepBlack border-b border-white/10 text-center px-6">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="font-heading font-black text-4xl sm:text-6xl md:text-7xl tracking-tightest uppercase leading-tight">
+                I DON'T JUST WANT<br>
+                TO SHOW YOU<br>
+                WHAT HAPPENED.<br>
+                <span class="text-rust italic font-light">I WANT YOU TO REMEMBER HOW IT FELT.</span>
+            </h2>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-24 md:py-36 max-w-7xl mx-auto px-6 md:px-12 border-b border-white/10">
+        <div class="mb-16">
+            <span class="font-mono text-xs tracking-widest text-rust uppercase">Methodology</span>
+            <h2 class="font-heading font-bold text-4xl md:text-6xl tracking-tight uppercase mt-2">The Process</h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="border-t border-white/20 pt-6 space-y-4">
+                <span class="font-mono text-xs text-rust">01</span>
+                <h3 class="font-heading font-bold text-xl uppercase tracking-wide">Talk</h3>
+                <p class="font-sans text-sm text-softBeige/70 leading-relaxed">We understand what you're planning and align on the creative vision.</p>
+            </div>
+            <div class="border-t border-white/20 pt-6 space-y-4">
+                <span class="font-mono text-xs text-rust">02</span>
+                <h3 class="font-heading font-bold text-xl uppercase tracking-wide">Create</h3>
+                <p class="font-sans text-sm text-softBeige/70 leading-relaxed">We photograph intentionally, capturing both candid atmosphere and directed portraits.</p>
+            </div>
+            <div class="border-t border-white/20 pt-6 space-y-4">
+                <span class="font-mono text-xs text-rust">03</span>
+                <h3 class="font-heading font-bold text-xl uppercase tracking-wide">Curate</h3>
+                <p class="font-sans text-sm text-softBeige/70 leading-relaxed">The strongest moments are selected and refined with meticulous color grading.</p>
+            </div>
+            <div class="border-t border-white/20 pt-6 space-y-4">
+                <span class="font-mono text-xs text-rust">04</span>
+                <h3 class="font-heading font-bold text-xl uppercase tracking-wide">Deliver</h3>
+                <p class="font-sans text-sm text-softBeige/70 leading-relaxed">You receive high-resolution photographs that tell the story authentically.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking / CTA Section -->
+    <section id="contact" class="py-24 md:py-36 max-w-5xl mx-auto px-6 text-center space-y-8">
+        <span class="font-mono text-xs tracking-widest text-rust uppercase">Inquiries</span>
+        <h2 class="font-heading font-black text-4xl sm:text-6xl md:text-7xl tracking-tight uppercase">
+            Got a moment worth remembering?
+        </h2>
+        <p class="font-sans text-xl text-softBeige/80">Let's create something.</p>
+        
+        <div class="flex flex-wrap justify-center gap-4 pt-6">
+            <a href="tel:+254768086885" class="px-8 py-4 bg-warmIvory text-deepBlack font-mono text-xs font-bold uppercase tracking-widest hover:bg-rust hover:text-warmIvory transition-all duration-300">
+                Book a Session
+            </a>
+            <a href="https://wa.me/254768086885" target="_blank" rel="noopener noreferrer" class="px-8 py-4 border border-white/20 hover:border-rust text-warmIvory font-mono text-xs uppercase tracking-widest transition-all duration-300">
+                WhatsApp
+            </a>
+            <a href="mailto:caleb@calebphotography.co.ke" class="px-8 py-4 border border-white/20 hover:border-rust text-warmIvory font-mono text-xs uppercase tracking-widest transition-all duration-300">
+                Email
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Details Grid -->
+    <section class="py-16 bg-charcoal border-t border-b border-white/10 font-mono text-xs">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="space-y-2">
+                <span class="text-softBeige/40 uppercase">Photographer</span>
+                <p class="text-warmIvory font-bold">Caleb Muthoka</p>
+            </div>
+            <div class="space-y-2">
+                <span class="text-softBeige/40 uppercase">Location</span>
+                <p class="text-warmIvory font-bold">Nairobi, Kenya</p>
+            </div>
+            <div class="space-y-2">
+                <span class="text-softBeige/40 uppercase">Direct Phone</span>
+                <p class="text-warmIvory font-bold">+254 768 086 885</p>
+            </div>
+            <div class="space-y-2">
+                <span class="text-softBeige/40 uppercase">Digital Channels</span>
+                <div class="flex flex-col gap-1">
+                    <a href="#" class="text-warmIvory hover:text-rust transition-colors">Instagram / @calebphotography</a>
+                    <a href="#" class="text-warmIvory hover:text-rust transition-colors">Email / Direct</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 font-mono text-xs text-softBeige/60">
+        <div class="space-y-2">
+            <h3 class="font-heading font-extrabold text-xl text-warmIvory tracking-tight">CALEB PHOTOGRAPHY<span class="text-rust">.</span></h3>
+            <p>NAIROBI / KENYA — 01°17′S 36°49′E</p>
+        </div>
+        <div class="flex flex-wrap gap-6 tracking-widest uppercase">
+            <a href="#work" class="hover:text-warmIvory transition-colors">Portraits</a>
+            <a href="#work" class="hover:text-warmIvory transition-colors">Events</a>
+            <a href="#work" class="hover:text-warmIvory transition-colors">Weddings</a>
+            <a href="#work" class="hover:text-warmIvory transition-colors">Ministry</a>
+            <a href="#work" class="hover:text-warmIvory transition-colors">Lifestyle</a>
+        </div>
+        <div>
+            <p class="text-softBeige/40">"Stories worth remembering."</p>
+            <p class="mt-1">© 2026 Caleb Muthoka. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Simple Mobile Nav Toggle Script -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
